@@ -4,11 +4,27 @@
 
 import 'react-native';
 import React from 'react';
-import App from '../App';
+import ProfileScreen from "../src/screens/ProfileScreen/ProfileScreen"
+import ChatScreen from "../src/screens/ChatScreen/ChatScreen"
+import FavouritesTab from "../src/screens/MainScreen/FavouritesTab"
 
-// Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-it('renders correctly', () => {
-  renderer.create(<App />);
+test('renders correctly', () => {
+  const tree = renderer.create(<ProfileScreen/>).toJSON();
+  expect(tree).toMatchSnapshot();
 });
+
+test('renders correctly', () => {
+  const tree = renderer.create(<ChatScreen/>).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('renders correctly', () => {
+  const tree = renderer.create(<FavouritesTab/>).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+
+
+
